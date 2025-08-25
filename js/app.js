@@ -1,7 +1,6 @@
-import { API_URL } from "../config.js";
 let uploadedImageUrl = null;
 
-$(document).ready(function() {
+export function initApp(API_URL) {
     // Spiele laden, wenn ein Datum ausgewählt wird
     $('#spieleLaden').on('click', function() {
         const selectedDate = $('#datumAuswahl').val();
@@ -59,8 +58,9 @@ $(document).ready(function() {
             alert("Bitte mindestens ein Spiel auswählen.");
         }
     });
-});
-				 function preloadLogos(logos, callback) {
+}
+
+export function preloadLogos(logos, callback) {
     let loadedCount = 0;
     const images = [];
     logos.forEach(function(logoSrc, index) {
@@ -81,7 +81,7 @@ $(document).ready(function() {
         };
     });
 }
-function generateImage(selectedGames, modus) {
+export function generateImage(selectedGames, modus) {
     const canvas = document.createElement('canvas');
     canvas.width = 1080;
     canvas.height = 1350;
