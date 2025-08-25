@@ -1,0 +1,143 @@
+        .tabs {
+            display: flex;
+            background-color: #2C4A9A;
+            color: white;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px 20px;
+            flex-grow: 1;
+            text-align: center;
+            border-right: 1px solid white;
+        }
+        .tab:last-child {
+            border-right: none;
+        }
+        .tab:hover {
+            background-color: #1F3680;
+        }
+        .active-tab {
+            background-color: #1F3680;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+        }
+        .active-content {
+            display: block;
+        }
+body {
+            font-family: 'Ruda', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #2C4A9A;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .schedule-table {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+        .schedule-table th {
+            background-color: #2C4A9A;
+            color: white;
+        }
+        .schedule-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2C4A9A;
+            padding: 20px;
+        }
+        .footer img {
+            height: 50px;
+            margin: 0 15px;
+        }
+        #spielBild {
+            margin-top: 20px;
+            border: 1px solid #000;
+	}
+	.hidden-column {
+    	    display: none;
+        }
+ body {
+            font-family: 'Ruda', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #2C4A9A;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .schedule-table {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+        .schedule-table th {
+            background-color: #2C4A9A;
+            color: white;
+        }
+        .schedule-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2C4A9A;
+            padding: 20px;
+        }
+        .footer img {
+            height: 50px;
+            margin: 0 15px;
+        }
+        #spielBild {
+            margin-top: 20px;
+            border: 1px solid #000;
+        }
