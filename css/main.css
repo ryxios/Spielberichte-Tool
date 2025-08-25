@@ -1,0 +1,86 @@
+body {
+    font-family: 'Ruda', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background-color: #2C4A9A;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+}
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+.header p {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+.schedule-table {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+.schedule-table th {
+    background-color: #2C4A9A;
+    color: white;
+}
+.schedule-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2C4A9A;
+    padding: 20px;
+}
+.footer img {
+    height: 50px;
+    margin: 0 15px;
+}
+#spielBild {
+    margin-top: 20px;
+    border: 1px solid #000;
+}
+.hidden-column {
+    display: none;
+}
+.centered {
+    text-align: center;
+}
+.spaced {
+    margin: 20px 0;
+}
+.hidden {
+    display: none;
+}
+.center-block {
+    display: block;
+    margin: 0 auto;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+.preview-img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #000;
+}
+.mt-10 {
+    margin-top: 10px;
+}
