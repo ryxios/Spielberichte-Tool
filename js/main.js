@@ -1,4 +1,7 @@
-import { API_URL } from '../config.js';
-import { startApp } from './app.js';
+import { fetchGames } from './api.js';
+import { initUI } from './ui.js';
+import { generateImage } from './imageGenerator.js';
 
-startApp();
+$(document).ready(function () {
+    initUI(fetchGames, generateImage);
+});
