@@ -1,66 +1,4 @@
-let uploadedImageUrl = null;
-
-export function initApp(API_URL) {
-    // Spiele laden, wenn ein Datum ausgewählt wird
-    $('#spieleLaden').on('click', function() {
-        const selectedDate = $('#datumAuswahl').val();
-        if (selectedDate) {
-            $.getJSON(API_URL, function(data) {
-                $('#spieleTabelle tbody').empty();
-                const filteredData = data.filter(function(spiel) {
-                    return spiel.gameDateTime && spiel.gameDateTime.startsWith(selectedDate);
-                });
-                if (filteredData.length > 0) {
-                    filteredData.sort(function(a, b) {
-                    return new Date(a.gameDateTime) - new Date(b.gameDateTime);
-                });
-                filteredData.forEach(function(spiel, index) {
-                        const spielRow = `<tr>
-                            <td>${new Date(spiel.gameDateTime).toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'})}</td>
-                            <td contenteditable="true">${spiel.venue}</td>
-                            <td contenteditable="true">${spiel.teamAName}</td>
-                            <td contenteditable="true">${spiel.teamBName}</td>
-                            <td contenteditable="true">${spiel.leagueShort}</td>
-                            <td><input type="checkbox" class="spielAuswahl" value="${index}"></td>
-                        </tr>`;
-                        $('#spieleTabelle tbody').append(spielRow);
-                    });
-                } else {
-                    alert("Keine Spiele für das ausgewählte Datum gefunden.");
-                }
-            }).fail(function() {
-                alert("Fehler beim Abrufen der Spieldaten.");
-            });
-        } else {
-            alert("Bitte ein Datum auswählen.");
-        }
-    });
-
-    // Hintergrundbild hochladen
-    $('#hintergrundHochladen').on('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                uploadedImageUrl = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // Bild generieren, wenn der Button gedrückt wird
-    $('#bildGenerieren').on('click', function() {
-        const modus = $('#modusAuswahl').val();
-        const selectedGames = modus === 'turnier' ? $('#spieleTabelle tbody tr') : $('.spielAuswahl:checked').closest('tr');
-        if (selectedGames.length > 0) {
-            generateImage(selectedGames, modus);
-        } else {
-            alert("Bitte mindestens ein Spiel auswählen.");
-        }
-    });
-}
-
-export function preloadLogos(logos, callback) {
+function preloadLogos(logos, callback) {
     let loadedCount = 0;
     const images = [];
     logos.forEach(function(logoSrc, index) {
@@ -81,7 +19,7 @@ export function preloadLogos(logos, callback) {
         };
     });
 }
-export function generateImage(selectedGames, modus) {
+export function generateImage(selectedGames, modus, uploadedImageUrl) {
     const canvas = document.createElement('canvas');
     canvas.width = 1080;
     canvas.height = 1350;
