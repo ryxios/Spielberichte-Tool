@@ -8,13 +8,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    
 </head>
 <body>
     <div class="header">
         <h1>Spieldaten Auswahl</h1>
         <p>Wählen Sie ein Datum aus und laden Sie die verfügbaren Spiele</p>
     </div>
+
+    
     <div class="centered spaced">
         <label for="datumAuswahl">Datum auswählen:</label>
         <input type="date" id="datumAuswahl">
@@ -35,6 +36,7 @@
             <option value="turnier">Turniermodus</option>
         </select>
     </div>
+
     <div id="spieleContainer">
         <h2 class="centered">Verfügbare Spiele</h2>
         <table id="spieleTabelle" class="schedule-table">
@@ -52,6 +54,8 @@
             </tbody>
         </table>
     </div>
+
+    
     <div class="centered spaced">
         <button id="bildGenerieren">Bild generieren</button>
     </div>
