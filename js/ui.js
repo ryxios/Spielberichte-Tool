@@ -1,8 +1,8 @@
 export function initUI(fetchGames, generateImage) {
     let uploadedImageUrl = null;
 
-    $('#spieleLaden').on('click', async function() {
-        const selectedDate = $('#datumAuswahl').val();
+    document.querySelector('#spieleLaden').addEventListener('click', async () => {
+        const selectedDate = document.querySelector('#datumAuswahl').value;
         if (selectedDate) {
             try {
                 const games = await fetchGames(selectedDate);
@@ -15,20 +15,22 @@ export function initUI(fetchGames, generateImage) {
         }
     });
 
-    $('#hintergrundHochladen').on('change', function(event) {
+    document.querySelector('#hintergrundHochladen').addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = (e) => {
                 uploadedImageUrl = e.target.result;
             };
             reader.readAsDataURL(file);
         }
     });
 
-    $('#bildGenerieren').on('click', function() {
-        const modus = $('#modusAuswahl').val();
-        const selectedGames = modus === 'turnier' ? $('#spieleTabelle tbody tr') : $('.spielAuswahl:checked').closest('tr');
+    document.querySelector('#bildGenerieren').addEventListener('click', () => {
+        const modus = document.querySelector('#modusAuswahl').value;
+        const selectedGames = modus === 'turnier'
+            ? Array.from(document.querySelectorAll('#spieleTabelle tbody tr'))
+            : Array.from(document.querySelectorAll('.spielAuswahl:checked')).map(cb => cb.closest('tr'));
         if (selectedGames.length > 0) {
             generateImage(selectedGames, modus, uploadedImageUrl);
         } else {
@@ -38,8 +40,9 @@ export function initUI(fetchGames, generateImage) {
 }
 
 function renderGamesTable(games) {
-    $('#spieleTabelle tbody').empty();
-    games.forEach(function(spiel, index) {
+    const tbody = document.querySelector('#spieleTabelle tbody');
+    tbody.innerHTML = '';
+    games.forEach((spiel, index) => {
         const spielRow = `<tr>
             <td>${new Date(spiel.gameDateTime).toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'})}</td>
             <td contenteditable="true">${spiel.venue}</td>
@@ -48,6 +51,6 @@ function renderGamesTable(games) {
             <td contenteditable="true">${spiel.leagueShort}</td>
             <td><input type="checkbox" class="spielAuswahl" value="${index}"></td>
         </tr>`;
-        $('#spieleTabelle tbody').append(spielRow);
+        tbody.insertAdjacentHTML('beforeend', spielRow);
     });
 }

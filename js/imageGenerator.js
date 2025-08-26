@@ -58,8 +58,9 @@ export function generateImage(selectedGames, modus, uploadedImageUrl) {
         ctx.filter = 'none';
 
        // Kopfzeile zeichnen
-        const bildTitel = modus === 'turnier' ? ($('#titelEingabe').val() || 'Turnier') : ($('#titelEingabe').val() || 'Heimspiele');
-        const selectedDate = $('#datumAuswahl').val();
+        const titelInput = document.querySelector('#titelEingabe').value;
+        const bildTitel = modus === 'turnier' ? (titelInput || 'Turnier') : (titelInput || 'Heimspiele');
+        const selectedDate = document.querySelector('#datumAuswahl').value;
         const datumText = new Date(selectedDate).toLocaleDateString('de-DE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         ctx.fillStyle = '#2C4A9A';
         ctx.fillRect(0, 0, canvas.width, 180);
@@ -74,12 +75,12 @@ export function generateImage(selectedGames, modus, uploadedImageUrl) {
         // Spiele in der Mitte des Bildes platzieren
         const totalHeight = selectedGames.length * 140;
         let yPosition = 150 + (1050 - totalHeight) / 2;
-        selectedGames.each(function() {
-            const zeit = $(this).find('td:nth-child(1)').text();
-            const ort = $(this).find('td:nth-child(2)').text();
-            const teamA = $(this).find('td:nth-child(3)').text();
-            const teamB = $(this).find('td:nth-child(4)').text();
-            const liga = modus === 'normal' ? $(this).find('td:nth-child(5)').text() : '';
+        selectedGames.forEach(row => {
+            const zeit = row.querySelector('td:nth-child(1)').textContent;
+            const ort = row.querySelector('td:nth-child(2)').textContent;
+            const teamA = row.querySelector('td:nth-child(3)').textContent;
+            const teamB = row.querySelector('td:nth-child(4)').textContent;
+            const liga = modus === 'normal' ? row.querySelector('td:nth-child(5)').textContent : '';
             
             ctx.fillStyle = 'rgba(44, 74, 154, 0.85)';
             ctx.fillRect(50, yPosition, 980, 60);
@@ -123,7 +124,9 @@ export function generateImage(selectedGames, modus, uploadedImageUrl) {
             // Generiertes Bild als Data-URL anzeigen
             console.log("Image generation completed.");
             const imageUrl = canvas.toDataURL('image/jpeg');
-            $('#spielBild').attr('src', imageUrl).show();
+            const spielBild = document.querySelector('#spielBild');
+            spielBild.src = imageUrl;
+            spielBild.style.display = 'block';
         });
     };
 
