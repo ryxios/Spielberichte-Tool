@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <script src="https://cdn.jsdelivr.net/npm/context-filter-polyfill/dist/index.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#vorschau">Vorschau</a></li>
+      <li><a href="#bericht">Bericht</a></li>
+    </ul>
+  </nav>
+  {{ content }}
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
