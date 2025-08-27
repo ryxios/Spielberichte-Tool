@@ -11,8 +11,8 @@
 <body>
   <nav>
     <ul>
-      <li><a href="#vorschau">Vorschau</a></li>
-      <li><a href="#bericht">Bericht</a></li>
+      <li><a href="{{ '/' | relative_url }}">Vorschau</a></li>
+      <li><a href="{{ '/bericht.html' | relative_url }}">Bericht</a></li>
     </ul>
   </nav>
   {{ content }}
