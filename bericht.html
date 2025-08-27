@@ -1,45 +1,6 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spiel Daten Visualisierung</title>
-    <script src="https://cdn.jsdelivr.net/npm/context-filter-polyfill/dist/index.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-    <div class="header">
-        <h1>Spielbericht Auswahl</h1>
-        <p>Wählen Sie ein Datum aus und laden Sie die verfügbaren Spiele</p>
-    </div>
+---
+layout: default
+title: Spielbericht
+---
 
-    
-    <div class="centered spaced">
-        <label for="datumAuswahl">Datum auswählen:</label>
-        <input type="date" id="datumAuswahl">
-    </div>
-
-    <div id="spieleContainer">
-        <h2 class="centered">Verfügbare Spiele</h2>
-        <table id="spieleTabelle" class="schedule-table">
-            <thead>
-                <tr>
-                    <th>Zeit</th>
-                    <th>Ort</th>
-                    <th>Team A</th>
-                    <th>Team B</th>
-                    <th>Liga</th>
-                    <th>Auswahl</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-
-    
-
-    <script type="module" src="js/main.js"></script>
-</body>
-</html>
+{% include bericht.html %}

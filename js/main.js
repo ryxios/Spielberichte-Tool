@@ -3,5 +3,7 @@ import { initUI } from './ui.js';
 import { generateImage } from './imageGenerator.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    initUI(fetchGames, generateImage);
+    if (document.querySelector('#vorschau')) {
+        initUI(fetchGames, generateImage);
+    }
 });
